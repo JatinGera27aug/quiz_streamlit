@@ -615,7 +615,7 @@ quiz_data = {
 
     #safety eng
     
-    "safety_materials": {
+    "safety engineering": {
         "easy": [
             {"question": "What is the main purpose of safety materials in construction?", 
              "options": ["To prevent accidents", "To enhance aesthetics", "To reduce costs", "To improve durability"], 
