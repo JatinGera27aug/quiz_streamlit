@@ -724,44 +724,85 @@ quiz_data = {
 
 }
 
+
+current_affairs = [
+    {
+        "title": "Singapore Leads FDI in India",
+        "description": "Singapore accounted for 50% of India's total FDI inflows in Q2 FY25.",
+        "link": "https://www.adda247.com/"
+    },
+    {
+        "title": "Ratapani Wildlife Sanctuary Declared a Tiger Reserve",
+        "description": "Madhya Pradesh announced its 8th tiger reserve at Ratapani.",
+        "link": "https://www.drishtiias.com/"
+    },
+    {
+        "title": "World AIDS Day 2024",
+        "description": "Global communities marked the day on December 1 to promote awareness about HIV/AIDS.",
+        "link": "https://www.adda247.com/"
+    }
+]
+
+# App Tabs
+tabs = st.tabs(["Quiz", "Current Affairs"])
+
+
 # Streamlit App Structure
-st.title("Quiz App")
-st.sidebar.header("Quiz Settings")
-
-# Select Topic
-topic = st.sidebar.selectbox("Select Topic", options=list(quiz_data.keys()))
-
-# Select Difficulty
-difficulty = st.sidebar.selectbox("Select Difficulty", options=["easy", "medium", "hard"])
-
-# Determine number of available questions in selected topic and difficulty
-available_questions = len(quiz_data[topic][difficulty])
-
-# Select Number of Questions (limited to available questions)
-num_questions = st.sidebar.slider("Number of Questions", min_value=1, max_value=available_questions, value=min(5, available_questions))
-
-# Filter Questions
-questions = random.sample(quiz_data[topic][difficulty], num_questions)
-
-# Quiz Logic
-for i, q in enumerate(questions):
-    st.subheader(f"Question {i + 1}")
-    st.write(q["question"])
+with tabs[0]:
+    st.title("Quiz App")
+    st.sidebar.header("Quiz Settings")
     
-    # Show options (non-interactive)
-    st.write("**Options:**")
-    for option in q["options"]:
-        st.write(f"- {option}")
+    # Select Topic
+    topic = st.sidebar.selectbox("Select Topic", options=list(quiz_data.keys()))
+    
+    # Select Difficulty
+    difficulty = st.sidebar.selectbox("Select Difficulty", options=["easy", "medium", "hard"])
+    
+    # Determine number of available questions in selected topic and difficulty
+    available_questions = len(quiz_data[topic][difficulty])
+    
+    # Select Number of Questions (limited to available questions)
+    num_questions = st.sidebar.slider("Number of Questions", min_value=1, max_value=available_questions, value=min(5, available_questions))
+    
+    # Filter Questions
+    questions = random.sample(quiz_data[topic][difficulty], num_questions)
+    
+    # Quiz Logic
+    for i, q in enumerate(questions):
+        st.subheader(f"Question {i + 1}")
+        st.write(q["question"])
+        
+        # Show options (non-interactive)
+        st.write("**Options:**")
+        for option in q["options"]:
+            st.write(f"- {option}")
+    
+        # Expandable section to show the answer
+        with st.expander("Show Answer"):
+            st.write(f"**Correct Answer:** {q['answer']}")
+    
+    # Topic Suggestion Box
+    st.write("### Suggest a Topic for Future Quizzes")
+    suggestion = st.text_input("Enter your topic suggestion:")
+    if suggestion:
+        # Append suggestion to a file
+        with open("C:/Users/Jatin/OneDrive/Desktop/New folder/covid data/suggestions.txt", "a") as file:
+            file.write(f"Topic requested/: {suggestion} \n")
+        st.write("Thank you for your suggestion!")
+        
+with tabs[1]:
+    st.title("Current Affairs")
+    for affair in current_affairs:
+        st.subheader(affair["title"])
+        st.write(affair["description"])
+        st.write(f"[Read more]({affair['link']})")
 
-    # Expandable section to show the answer
-    with st.expander("Show Answer"):
-        st.write(f"**Correct Answer:** {q['answer']}")
+    # Topic Suggestion Box
+    st.write("### Suggest a Topic for Future Quizzes")
+    suggestion = st.text_input("Enter your topic suggestion:")
+    if suggestion:
+        # Append suggestion to a file
+        with open("C:/Users/Jatin/OneDrive/Desktop/New folder/covid data/suggestions.txt", "a") as file:
+            file.write(f"Topic requested/: {suggestion} \n")
+        st.write("Thank you for your suggestion!")
 
-# Topic Suggestion Box
-st.write("### Suggest a Topic for Future Quizzes")
-suggestion = st.text_input("Enter your topic suggestion:")
-if suggestion:
-    # Append suggestion to a file
-    with open("C:/Users/Jatin/OneDrive/Desktop/New folder/covid data/suggestions.txt", "a") as file:
-        file.write(f"Topic requested/: {suggestion} \n")
-    st.write("Thank you for your suggestion!")
