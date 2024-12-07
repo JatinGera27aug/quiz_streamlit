@@ -752,7 +752,14 @@ current_affairs = {
         "details":
         "New Delhi hosted the 14th Asia-Oceania Meteorological Satellite Users’ Conference (AOMSUC-14). The event focused on advancements in meteorology, satellite technology, and climate resilience, drawing experts and officials from across the region.",
         "source": "ADDA247"
-    }],
+    },
+    {
+        "title": "Indian Railways Partners with Switzerland",
+        "details": 
+        "The Indian Railways renewed its partnership with Switzerland for advanced infrastructure modernization. The collaboration aims to bring technological upgrades to India’s railway systems, focusing on high-speed rail development and sustainable practices.",
+        "source": "ADDA247"
+    }
+    ],
     "Global": [{
         "title": "World AIDS Day 2024 Observed",
         "details":
@@ -768,6 +775,18 @@ current_affairs = {
         "details":
         "Indian activist Pooja Sharma was named among BBC's 100 Most Inspiring Women of 2024 for her extraordinary humanitarian work, including performing funeral rites for unclaimed bodies and supporting underprivileged communities.",
         "source": "GKToday"
+    }, ,
+    {
+        "title": "Zimbabwe Launches ZIMSAT-2",
+        "details": 
+        "Zimbabwe achieved a milestone in space exploration with the launch of ZIMSAT-2. The satellite is designed to enhance the country's capabilities in weather forecasting, disaster management, and agricultural monitoring.",
+        "source": "ADDA247"
+    },
+    {
+        "title": "Global Economy Shows Signs of Stabilization",
+        "details": 
+        "The World Bank’s Global Economic Prospects Report indicates signs of stabilization in the global economy after three turbulent years. While geopolitical tensions and climate disasters remain challenges, global GDP growth is expected to reach 2.6% for FY24-25.",
+        "source": "Drishti IAS"
     }]
 }
 
