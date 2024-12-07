@@ -725,23 +725,51 @@ quiz_data = {
 }
 
 
-current_affairs = [
-    {
+# Current Affairs Data (Expanded Details)
+current_affairs = {
+    "India-Specific": [{
         "title": "Singapore Leads FDI in India",
-        "description": "Singapore accounted for 50% of India's total FDI inflows in Q2 FY25.",
-        "link": "https://www.adda247.com/"
-    },
-    {
+        "details":
+        "In the July-September quarter of FY25, Singapore contributed 50% of the total Foreign Direct Investment inflows into India, amounting to USD 13.6 billion. This marks a significant recovery in FDI inflows and highlights Singapore's growing role in India's economic development.",
+        "source": "ADDA247"
+    }, {
         "title": "Ratapani Wildlife Sanctuary Declared a Tiger Reserve",
-        "description": "Madhya Pradesh announced its 8th tiger reserve at Ratapani.",
-        "link": "https://www.drishtiias.com/"
-    },
-    {
-        "title": "World AIDS Day 2024",
-        "description": "Global communities marked the day on December 1 to promote awareness about HIV/AIDS.",
-        "link": "https://www.adda247.com/"
-    }
-]
+        "details":
+        "Ratapani Wildlife Sanctuary, located in Madhya Pradesh, has been declared the state’s 8th tiger reserve. This decision is part of broader efforts to enhance tiger conservation and promote ecotourism in the region, supporting wildlife and local economic growth.",
+        "source": "GKToday"
+    }, {
+        "title": "Banking Laws (Amendment) Bill, 2024",
+        "details":
+        "The Union Finance Minister introduced the Banking Laws (Amendment) Bill, 2024, in the Lok Sabha. The bill aims to revise key banking regulations to ensure improved governance, financial stability, and sectoral growth.",
+        "source": "ADDA247"
+    }, {
+        "title": "India and Kuwait Sign MoU",
+        "details":
+        "India and Kuwait have signed a Memorandum of Understanding to establish a Joint Commission for Cooperation (JCC). This agreement is a milestone in strengthening bilateral relations between the two nations.",
+        "source": "GKToday"
+    }, {
+        "title": "AOMSUC-14 Conference in New Delhi",
+        "details":
+        "New Delhi hosted the 14th Asia-Oceania Meteorological Satellite Users’ Conference (AOMSUC-14). The event focused on advancements in meteorology, satellite technology, and climate resilience, drawing experts and officials from across the region.",
+        "source": "ADDA247"
+    }],
+    "Global": [{
+        "title": "World AIDS Day 2024 Observed",
+        "details":
+        "December 1, 2024, marked World AIDS Day, emphasizing global efforts in awareness, prevention, and treatment of HIV/AIDS. The day encouraged communities to combat stigma and provide support to affected individuals.",
+        "source": "ADDA247"
+    }, {
+        "title": "International Day for the Abolition of Slavery",
+        "details":
+        "Observed on December 2, this day highlighted global efforts to eradicate modern slavery, including human trafficking and forced labor. Awareness campaigns stressed the importance of collective action to end exploitation.",
+        "source": "ADDA247"
+    }, {
+        "title": "BBC's 100 Most Inspiring Women",
+        "details":
+        "Indian activist Pooja Sharma was named among BBC's 100 Most Inspiring Women of 2024 for her extraordinary humanitarian work, including performing funeral rites for unclaimed bodies and supporting underprivileged communities.",
+        "source": "GKToday"
+    }]
+}
 
 # App Tabs
 tabs = st.tabs(["Quiz", "Current Affairs"])
@@ -782,27 +810,31 @@ with tabs[0]:
             st.write(f"**Correct Answer:** {q['answer']}")
     
     # Topic Suggestion Box
-    st.write("### Suggest a Topic for Future Quizzes")
-    suggestion = st.text_input("Enter your topic suggestion:")
-    if suggestion:
-        # Append suggestion to a file
-        with open("C:/Users/Jatin/OneDrive/Desktop/New folder/covid data/suggestions.txt", "a") as file:
-            file.write(f"Topic requested/: {suggestion} \n")
-        st.write("Thank you for your suggestion!")
+    #st.write("### Suggest a Topic for Future Quizzes")
+    #suggestion = st.text_input("Enter your topic suggestion:")
+    #if suggestion:
+     #   # Append suggestion to a file
+      #  with open("C:/Users/Jatin/OneDrive/Desktop/New folder/covid data/suggestions.txt", "a") as file:
+       #     file.write(f"Topic requested/: {suggestion} \n")
+       # st.write("Thank you for your suggestion!")
         
+# Current Affairs Tab
 with tabs[1]:
     st.title("Current Affairs")
-    for affair in current_affairs:
-        st.subheader(affair["title"])
-        st.write(affair["description"])
-        st.write(f"[Read more]({affair['link']})")
 
-    # Topic Suggestion Box
-    st.write("### Suggest a Topic for Future Quizzes")
-    suggestion = st.text_input("Enter your topic suggestion:")
-    if suggestion:
-        # Append suggestion to a file
-        with open("C:/Users/Jatin/OneDrive/Desktop/New folder/covid data/suggestions.txt", "a") as file:
-            file.write(f"Topic requested/: {suggestion} \n")
-        st.write("Thank you for your suggestion!")
+    # Display India-Specific Affairs
+    st.subheader("India-Specific Current Affairs")
+    for affair in current_affairs["India-Specific"]:
+        st.markdown(f"### {affair['title']}")
+        st.write(affair["details"])
+        st.write(f"**Source:** {affair['source']}")
+
+    # Display Global Affairs
+    st.subheader("Global Current Affairs")
+    for affair in current_affairs["Global"]:
+        st.markdown(f"### {affair['title']}")
+        st.write(affair["details"])
+        st.write(f"**Source:** {affair['source']}")
+
+ 
 
