@@ -775,7 +775,7 @@ current_affairs = {
         "details":
         "Indian activist Pooja Sharma was named among BBC's 100 Most Inspiring Women of 2024 for her extraordinary humanitarian work, including performing funeral rites for unclaimed bodies and supporting underprivileged communities.",
         "source": "GKToday"
-    }, ,
+    }, 
     {
         "title": "Zimbabwe Launches ZIMSAT-2",
         "details": 
